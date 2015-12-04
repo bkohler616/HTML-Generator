@@ -9,42 +9,42 @@
         Closing="MainWindow_OnClosing">
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <Label Grid.Column="0"
-               Grid.Row="0" 
+               Grid.Row="0"
                Grid.ColumnSpan="2"
                HorizontalAlignment="Center"
                Content="Template Creator"
-               Margin="20,20,20,20"/>
-        
+               Margin="20,20,20,20" />
+
         <Button Content="New Template"
                 Grid.Column="0"
                 Grid.Row="0"
                 Margin="50,60,50,60"
-                Click="NewTemplate_OnClick"/>
+                Click="NewTemplate_OnClick" />
 
         <Button Content="Load Template"
                 Grid.Column="1"
                 Grid.Row="0"
                 Margin="50,60,50,60"
-                Click="LoadTemplate_OnClick"/>
-        
+                Click="LoadTemplate_OnClick" />
+
         <Button Content="Save Template"
                 Grid.Column="1"
                 Grid.Row="1"
                 Margin="50,60,50,60"
-                Click="SaveTemplate_OnClick"/>
-        
+                Click="SaveTemplate_OnClick" />
+
         <Label Name="CurrentTemplateDetails"
                Grid.Column="0"
-               Grid.Row="1"/>
+               Grid.Row="1" />
 
 
     </Grid>

@@ -4,20 +4,24 @@ using System.Windows;
 using System.Xml.Serialization;
 using Microsoft.Win32;
 
-namespace TemplateSystem {
+namespace TemplateSystem
+{
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window {
+    public partial class MainWindow : Window
+    {
         public Templater WorkingForm = new Templater();
 
-        public MainWindow() {
+        public MainWindow()
+        {
             InitializeComponent();
             CurrentTemplateDetails.Content = "Currently Loaded: \n" +
                                              "Nothing";
         }
 
-        private void NewTemplate_OnClick(object sender, RoutedEventArgs e) {
+        private void NewTemplate_OnClick(object sender, RoutedEventArgs e)
+        {
             WorkingForm = new Templater();
             Hide();
             CurrentTemplateDetails.Content = "Currently Loaded: \n" +
@@ -25,7 +29,6 @@ namespace TemplateSystem {
             WorkingForm.ShowDialog();
             WorkingForm.ItemTree.Close();
             Show();
-
         }
 
         /// <summary>
@@ -35,17 +38,20 @@ namespace TemplateSystem {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LoadTemplate_OnClick(object sender, RoutedEventArgs e) {
-            var dlg = new OpenFileDialog {
+        private void LoadTemplate_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dlg = new OpenFileDialog
+            {
                 DefaultExt = ".txml",
                 Filter = "Template XML file (*.txml)|*.txml"
             };
-            bool? result = dlg.ShowDialog();
-            if (result.HasValue && result == true) {
-                string filename = dlg.FileName;
-                XmlSerializer serializer = new XmlSerializer(typeof(TemplateList));
-                StreamReader reader = new StreamReader(filename);
-                TemplateList oldList = (TemplateList) serializer.Deserialize(reader);
+            var result = dlg.ShowDialog();
+            if (result.HasValue && result == true)
+            {
+                var filename = dlg.FileName;
+                var serializer = new XmlSerializer(typeof (TemplateList));
+                var reader = new StreamReader(filename);
+                var oldList = (TemplateList) serializer.Deserialize(reader);
                 WorkingForm = new Templater(oldList);
                 reader.Close();
                 Hide();
@@ -62,19 +68,22 @@ namespace TemplateSystem {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SaveTemplate_OnClick(object sender, RoutedEventArgs e) {
-            XmlSerializer serializer = new XmlSerializer(typeof(TemplateList));
-            SaveFileDialog dlg = new SaveFileDialog {
+        private void SaveTemplate_OnClick(object sender, RoutedEventArgs e)
+        {
+            var serializer = new XmlSerializer(typeof (TemplateList));
+            var dlg = new SaveFileDialog
+            {
                 FileName = "templateName",
                 DefaultExt = ".txml",
                 Filter = "Template XML file (*.txml)|*.txml"
             };
-            bool? result = dlg.ShowDialog();
+            var result = dlg.ShowDialog();
 
             // Process save file dialog box results
-            if (result.HasValue && result == true) {
+            if (result.HasValue && result == true)
+            {
                 // Save document
-                string filename = dlg.FileName;
+                var filename = dlg.FileName;
                 TextWriter writer = new StreamWriter(filename);
                 serializer.Serialize(writer, WorkingForm.ItemTree.TemplateItems);
                 writer.Close();
@@ -82,7 +91,8 @@ namespace TemplateSystem {
             else MessageBox.Show("Save was not complete.");
         }
 
-        private void MainWindow_OnClosing(object sender, CancelEventArgs e) {
+        private void MainWindow_OnClosing(object sender, CancelEventArgs e)
+        {
             Application.Current.Shutdown(0);
         }
     }

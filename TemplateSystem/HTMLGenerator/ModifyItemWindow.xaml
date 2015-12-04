@@ -10,27 +10,27 @@
         Height="340" Width="350">
     <Grid Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="85*"/>
-            <ColumnDefinition Width="29*"/>
-            <ColumnDefinition Width="84*"/>
-            <ColumnDefinition Width="85*"/>
+            <ColumnDefinition Width="85*" />
+            <ColumnDefinition Width="29*" />
+            <ColumnDefinition Width="84*" />
+            <ColumnDefinition Width="85*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Content="Item type:"
                Grid.Column="0"
@@ -38,17 +38,17 @@
                Grid.ColumnSpan="2"
                HorizontalAlignment="Right"
                VerticalAlignment="Center"
-               Margin="5,5,5,5"/>
+               Margin="5,5,5,5" />
         <ComboBox Grid.Column="2"
                   Grid.Row="0"
                   Grid.ColumnSpan="2"
                   Margin="10,10,10,10"
                   Name="CbItemType">
             <ComboBox.Items>
-                <ComboBoxItem Content="Text"/>
-                <ComboBoxItem Content="Bulleted List"/>
-                <ComboBoxItem Content="Numbered List"/>
-                <ComboBoxItem Content="Image"/>
+                <ComboBoxItem Content="Text" />
+                <ComboBoxItem Content="Bulleted List" />
+                <ComboBoxItem Content="Numbered List" />
+                <ComboBoxItem Content="Image" />
             </ComboBox.Items>
         </ComboBox>
         <Label Content="Name: "
@@ -56,37 +56,36 @@
                Grid.ColumnSpan="2"
                Grid.Row="1"
                HorizontalAlignment="Right"
-               VerticalAlignment="Center"/>
+               VerticalAlignment="Center" />
         <TextBox Grid.Column="2"
                  Grid.Row="1"
                  Grid.ColumnSpan="2"
                  Margin="10,10,10,10"
-                 Name="TbUid">
-        </TextBox>
+                 Name="TbUid" />
         <Button Content="Edit _content"
-               Grid.Column="0"
+                Grid.Column="0"
                 Grid.ColumnSpan="2"
-               Grid.Row="4"
-               Margin="5,5,5,5"
-                Click="ContentButton_OnClick"/>
+                Grid.Row="4"
+                Margin="5,5,5,5"
+                Click="ContentButton_OnClick" />
 
         <GroupBox Grid.Column="2"
-                          Grid.Row="3"
-                          Grid.ColumnSpan="2"
-                          Grid.RowSpan="3">
+                  Grid.Row="3"
+                  Grid.ColumnSpan="2"
+                  Grid.RowSpan="3">
             <GroupBox.Header>
                 Margins
             </GroupBox.Header>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="1"
                        Grid.Column="1"
@@ -101,28 +100,28 @@
                          Height="20"
                          Width="20"
                          Margin="5,5,5,5"
-                         Name="TbMarginTop"/>
+                         Name="TbMarginTop" />
                 <TextBox Grid.Column="2"
                          Grid.Row="1"
                          Height="20"
                          Width="20"
                          Margin="5,5,5,5"
                          HorizontalAlignment="Left"
-                         Name="TbMaringRight"/>
+                         Name="TbMaringRight" />
                 <TextBox Grid.Column="0"
                          Grid.Row="1"
                          Height="20"
                          Width="20"
                          Margin="5,5,5,5"
                          HorizontalAlignment="Right"
-                         Name="TbMarginLeft"/>
+                         Name="TbMarginLeft" />
                 <TextBox Grid.Column="1"
                          Grid.Row="2"
                          Height="20"
                          Width="20"
                          Margin="5,5,5,5"
                          VerticalAlignment="Bottom"
-                         Name="TbMarginBottom"/>
+                         Name="TbMarginBottom" />
             </Grid>
         </GroupBox>
         <GroupBox Grid.Column="3"
@@ -134,17 +133,17 @@
             </GroupBox.Header>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Row="0"
                          Grid.Column="0"
                          Height="20"
                          Width="20"
                          HorizontalAlignment="Left"
-                         Name="TbHeight"/>
+                         Name="TbHeight" />
                 <Label Grid.Row="0"
                        Grid.Column="0"
                        HorizontalAlignment="Center">
@@ -153,23 +152,23 @@
                 <TextBox Grid.Column="0"
                          Grid.Row="0"
                          Height="20"
-                         Width ="20"
+                         Width="20"
                          HorizontalAlignment="Right"
-                         Name="TbWidth"/>
+                         Name="TbWidth" />
             </Grid>
         </GroupBox>
-        
+
         <Button
             Content="Accept"
             Grid.Row="9"
             Grid.Column="2"
             Margin="5,5,5,5"
-            Click="AcceptButton_OnClick"/>
+            Click="AcceptButton_OnClick" />
         <Button
             Content="Cancel"
             Grid.Row="9"
             Grid.Column="3"
             Margin="5,5,5,5"
-            Click="CancelButton_OnClick"/>
+            Click="CancelButton_OnClick" />
     </Grid>
 </Window>

@@ -9,16 +9,16 @@
         SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Content="Enter information here:"
-               Grid.Row="0"/>
+               Grid.Row="0" />
         <TextBox Margin="10"
                  TextWrapping="Wrap"
                  AcceptsReturn="True"
                  AcceptsTab="True"
                  Grid.Row="1"
-                 Name="ContentEditor"/>
+                 Name="ContentEditor" />
     </Grid>
 </Window>

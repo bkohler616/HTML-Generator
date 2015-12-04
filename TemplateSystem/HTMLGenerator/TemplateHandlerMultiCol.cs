@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TemplateSystem
+﻿namespace TemplateSystem
 {
     public class TemplateHandlerMultiCol
     {
         public TemplateHandlerColumn[] ColumnArray { get; set; }
 
         /// <summary>
-        /// Column array can only be 2-4. 
+        ///     Column array can only be 2-4.
         /// </summary>
         /// <param name="colAmount"></param>
         /// <returns></returns>

@@ -11,16 +11,16 @@
         Name="TemplateForm">
     <Window.ContextMenu>
         <ContextMenu>
-            <MenuItem Header="Add Item" Click="ContextMenu_AddItem_OnClick"/>
-            <MenuItem Header="Edit Form" Click="ContextMenu_EditForm_OnClick"/>
-            <Separator/>
+            <MenuItem Header="Add Item" Click="ContextMenu_AddItem_OnClick" />
+            <MenuItem Header="Edit Form" Click="ContextMenu_EditForm_OnClick" />
+            <Separator />
         </ContextMenu>
     </Window.ContextMenu>
     <Grid Name="MainGrid">
 
         <eo:WebControl>
             <eo:WebControl.WebView>
-                <eo:WebView Url="google.com"/>
+                <eo:WebView Url="google.com" />
             </eo:WebControl.WebView>
         </eo:WebControl>
     </Grid>

@@ -9,15 +9,15 @@
     <Grid>
         <TreeView Name="ItemTree">
             <TreeViewItem Header="Hello">
-                <TreeViewItem Header="Hello more"/>
+                <TreeViewItem Header="Hello more" />
             </TreeViewItem>
             <TreeViewItem Header="Oh God">
                 <TreeViewItem Header="Motherfucker">
-                    <TreeViewItem Header="Oh god no"></TreeViewItem>
+                    <TreeViewItem Header="Oh god no" />
                 </TreeViewItem>
             </TreeViewItem>
-            <TreeViewItem Header="Help"/>
-            <TreeViewItem Header="Me Please"/>
+            <TreeViewItem Header="Help" />
+            <TreeViewItem Header="Me Please" />
         </TreeView>
     </Grid>
 </Window>
