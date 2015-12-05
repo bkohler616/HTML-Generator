@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TemplateSystem
+namespace HTMLGenerator
 {
     /// <summary>
     ///     Interaction logic for App.xaml

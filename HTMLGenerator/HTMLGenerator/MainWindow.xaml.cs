@@ -4,7 +4,7 @@ using System.Windows;
 using System.Xml.Serialization;
 using Microsoft.Win32;
 
-namespace TemplateSystem
+namespace HTMLGenerator
 {
     /// <summary>
     ///     Interaction logic for MainWindow.xaml

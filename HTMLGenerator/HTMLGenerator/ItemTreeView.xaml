@@ -1,13 +1,23 @@
-﻿<Window x:Class="TemplateSystem.ItemTreeView"
+﻿<Window x:Class="HTMLGenerator.ItemTreeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TemplateSystem"
         mc:Ignorable="d"
-        Title="ItemTreeView" Height="400" Width="200">
+        Title="ItemTreeView" Height="400" Width="200"
+        WindowStyle="ToolWindow"
+        Closing="ItemTreeView_OnClosing">
     <Grid>
-        <TreeView Name="ItemTree">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TreeView Name="ItemTree" Grid.ColumnSpan="3" Grid.Row="0">
             <TreeViewItem Header="Hello">
                 <TreeViewItem Header="Hello more" />
             </TreeViewItem>
@@ -19,5 +29,11 @@
             <TreeViewItem Header="Help" />
             <TreeViewItem Header="Me Please" />
         </TreeView>
+        
+        <Button Grid.Row="1" Grid.Column="0" Margin="5,5,5,5" Content="Add" Click="AddItemButton_OnClick"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" Content="&#9650;"/>
+        <Button Grid.Row="1" Grid.Column="2" Margin="5,5,5,5" Content="&#9660;"/>
+        
+        
     </Grid>
 </Window>

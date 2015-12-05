@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TemplateSystem
+namespace HTMLGenerator
 {
     /// <summary>
     ///     Interaction logic for ModifyItem.xaml
@@ -10,9 +10,9 @@ namespace TemplateSystem
     /// </summary>
     public partial class ModifyItem : Window
     {
-        private string _content = "";
+        public string ItemContent = "";
 
-        private bool acceptChange;
+        public bool AcceptChange;
 
         public ModifyItem()
         {
@@ -21,20 +21,20 @@ namespace TemplateSystem
 
         private void ContentButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var newString = new StringInputWindow(_content);
+            var newString = new StringInputWindow(ItemContent);
             newString.ShowDialog();
-            _content = newString.ContentEditor.Text;
+            ItemContent = newString.ContentEditor.Text;
         }
 
         private void AcceptButton_OnClick(object sender, RoutedEventArgs e)
         {
-            acceptChange = true;
+            AcceptChange = true;
             Close();
         }
 
         private void CancelButton_OnClick(object sender, RoutedEventArgs e)
         {
-            acceptChange = false;
+            AcceptChange = false;
             Close();
         }
     }

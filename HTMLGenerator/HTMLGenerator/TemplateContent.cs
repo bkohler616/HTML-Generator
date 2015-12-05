@@ -1,8 +1,8 @@
-﻿namespace TemplateSystem
+﻿namespace HTMLGenerator
 {
     public abstract class TemplateContent : TemplateItem
     {
-        //Content
+        //ItemContent
         public string Content { get; set; }
 
         //Margins

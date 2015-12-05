@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TemplateSystem
+namespace HTMLGenerator
 {
     public abstract class TemplateHandler : TemplateItem
     {

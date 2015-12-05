@@ -1,4 +1,4 @@
-﻿namespace TemplateSystem
+﻿namespace HTMLGenerator
 {
     public class TemplateContentText : TemplateContent
     {

@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 
-namespace TemplateSystem
+namespace HTMLGenerator
 {
     /// <summary>
     ///     Interaction logic for ItemTreeView.xaml
@@ -15,6 +17,21 @@ namespace TemplateSystem
             InitializeComponent();
             TemplateItems = new TemplateList();
             ItemTree.Items.Add(new TreeViewItem {Header = "help"});
+        }
+
+        private void AddItemButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ModifyItem newItem = new ModifyItem();
+            newItem.ShowDialog();
+            if (newItem.AcceptChange)
+            {
+                
+            }
+        }
+
+        private void ItemTreeView_OnClosing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }

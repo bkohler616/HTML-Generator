@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace TemplateSystem
+namespace HTMLGenerator
 {
     /// <summary>
     ///     The purpose of this class is to contain a list of data that will hold all of the information for every object

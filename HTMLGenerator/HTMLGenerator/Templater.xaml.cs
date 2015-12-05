@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace TemplateSystem
+namespace HTMLGenerator
 {
     /// <summary>
     ///     Interaction logic for Templater.xaml
