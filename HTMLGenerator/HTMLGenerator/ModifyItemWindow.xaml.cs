@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Win32;
 
 namespace HTMLGenerator
 {
@@ -28,9 +29,20 @@ namespace HTMLGenerator
 
         private void ContentButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var newString = new StringInputWindow(ItemContent);
-            newString.ShowDialog();
-            ItemContent = newString.ContentEditor.Text;
+            if (CbItem.SelectedItem.Equals("Text"))
+            {
+                var newString = new StringInputWindow(ItemContent);
+                newString.ShowDialog();
+                ItemContent = newString.ContentEditor.Text;
+            } else if (CbItem.SelectedItem.Equals("Image"))
+            {
+                var dlg = new OpenFileDialog
+                {
+                    Filter = " *.png|*.png|*.jpg|*.jpg|*.gif|*.gif"
+                };
+                var result = dlg.ShowDialog();
+                
+            }
         }
 
         private void AcceptButton_OnClick(object sender, RoutedEventArgs e)

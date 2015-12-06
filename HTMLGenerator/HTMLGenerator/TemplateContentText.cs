@@ -19,5 +19,7 @@
                 "\" id=\"" + Uid + "\">" +
                 Content + "</" + StringType + ">";
         }
+
+        public TemplateContentText() { }
     }
 }

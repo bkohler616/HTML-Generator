@@ -22,5 +22,7 @@
 
             return builder;
         }
+
+        public TemplateContentImage() { }
     }
 }

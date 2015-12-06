@@ -12,5 +12,7 @@ namespace HTMLGenerator
             StartDiv = "<div id=\"uid\" class=\"well\">";
             EndDiv = "</div>";
         }
+
+        public TemplateHandlerWell() { }
     }
 }

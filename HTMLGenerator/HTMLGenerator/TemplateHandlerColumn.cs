@@ -14,5 +14,6 @@ namespace HTMLGenerator
             StartDiv = "<div class=\"col-md-" + NewColSize + "\">";
             EndDiv = "</div>";
         }
+        public TemplateHandlerColumn() { }
     }
 }

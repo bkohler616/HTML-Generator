@@ -21,5 +21,7 @@
                 ColumnArray[i] = new TemplateHandlerColumn("column" + i, colSize);
             }
         }
+
+        public TemplateHandlerMultiCol() { }
     }
 }

@@ -31,7 +31,7 @@ namespace HTMLGenerator
         public Templater(TemplateList newList)
         {
             InitializeComponent();
-            ItemTree.TemplateItems = newList;
+            ItemTree = new ItemTreeView(newList);
         }
 
         private void ContextMenu_AddItem_OnClick(object sender, RoutedEventArgs e)

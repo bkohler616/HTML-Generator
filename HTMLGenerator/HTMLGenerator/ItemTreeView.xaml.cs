@@ -22,6 +22,7 @@ namespace HTMLGenerator
 
         public ItemTreeView(TemplateList oldList)
         {
+            InitializeComponent();
             TemplateItems = oldList;
             RefreshList();
         }
