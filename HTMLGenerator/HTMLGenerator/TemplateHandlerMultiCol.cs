@@ -1,9 +1,10 @@
 ﻿namespace HTMLGenerator
 {
-    public class TemplateHandlerMultiCol :TemplateItem
+    public class TemplateHandlerMultiCol : TemplateHandler
     {
         public TemplateHandlerColumn[] ColumnArray { get; set; }
         
+        public int ColAmount { get; set; }
         /// <summary>
         ///     Column array can only be 2-4.
         /// </summary>
@@ -13,10 +14,12 @@
         {
             if (colAmount < 2 || colAmount > 4)
                 return false;
+            ColAmount = colAmount;
             ColumnArray = new TemplateHandlerColumn[colAmount];
-            foreach (var item in ColumnArray)
+            int colSize = 12/colAmount;
+            for (int i = 1; i < ColAmount; i++)
             {
-                item.ColSize = 12/colAmount;
+                ColumnArray[i] = new TemplateHandlerColumn("column" + i, colSize);
             }
             return true;
         }

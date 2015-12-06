@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Reflection;
+using System.Windows.Controls;
 
 namespace HTMLGenerator
 {
@@ -108,8 +110,10 @@ namespace HTMLGenerator
                                "<body>" +
                                "<div class=\"container\">";
             //Call start segments
-            foreach (var item in ItemTree.ItemTree.Items)
-            {//TODO:Make manager to go through tree and output html according to the items.
+            foreach (TreeViewItem itemObj in ItemTree.ItemTree.Items )
+            {
+                TemplateItem item = ItemTree.TemplateItems.TemplateItems.Find(i => i.Uid == itemObj.Header.ToString());
+                htmlBuild += TemplateItem.BuildHelper(item);
             }
             //Call end segments
 

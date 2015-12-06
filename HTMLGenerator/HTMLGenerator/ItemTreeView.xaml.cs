@@ -28,7 +28,6 @@ namespace HTMLGenerator
         private void AddItemButton_OnClick(object sender, RoutedEventArgs e)
         {
             var newItem = new ModifyItem(TemplateItems);
-            var newItemUnique = false;
             Thread.Sleep(300);
             newItem.ShowDialog();
             if (!newItem.AcceptChange) return;
@@ -39,8 +38,9 @@ namespace HTMLGenerator
                     switch (newItem.CbItem.Text)
                     {
                         case "Well":
-                            var newWell = new TemplateHandlerWell {Uid = newItem.TbUid.Text};
+                            var newWell = new TemplateHandlerWell (newItem.TbUid.Text);
                             TemplateItems.Add(newWell);
+                            ItemTree.Items.Add(new TreeViewItem {Header = newWell.Uid});
                             break;
                         /*case "Multiple Columns":
                             //TODO: Work on multicolumn
@@ -61,7 +61,7 @@ namespace HTMLGenerator
                         case "Text":
                             var newText = new TemplateContentText
                             {
-                                Uid = newItem.Uid,
+                                Uid = newItem.TbUid.Text,
                                 Content = newItem.ItemContent,
                                 MarginBottom = Convert.ToInt32(newItem.TbMarginBottom.Text),
                                 MarginTop = Convert.ToInt32(newItem.TbMarginTop.Text),
@@ -69,9 +69,10 @@ namespace HTMLGenerator
                                 MarginRight = Convert.ToInt32(newItem.TbMarginRight.Text)
                             };
                             TemplateItems.Add(newText);
+                            ItemTree.Items.Add(new TreeViewItem { Header = newText.Uid });
                             break;
                         case "Image":
-                            var newImage = new TemplateContentImage { Uid = newItem.Uid,
+                            var newImage = new TemplateContentImage { Uid = newItem.TbUid.Text,
                                 Content = newItem.ItemContent,
                                 MarginBottom = Convert.ToInt32(newItem.TbMarginBottom.Text),
                                 MarginTop = Convert.ToInt32(newItem.TbMarginTop.Text),
@@ -79,6 +80,7 @@ namespace HTMLGenerator
                                 MarginRight = Convert.ToInt32(newItem.TbMarginRight.Text)
                             };
                             TemplateItems.Add(newImage);
+                            ItemTree.Items.Add(new TreeViewItem { Header = newImage.Uid });
                             break;
                         default:
                             MessageBox.Show("Not adding item. Item of type \"" +

@@ -16,6 +16,8 @@ namespace HTMLGenerator
         private readonly TemplateList _tempListHold;
         public bool AcceptChange;
 
+        //TODO: Finish Type Selector (CbTypeSelector)
+
         public ModifyItem(TemplateList oldList)
         {
             InitializeComponent();

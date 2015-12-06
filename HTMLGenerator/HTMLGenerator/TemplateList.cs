@@ -34,7 +34,7 @@ namespace HTMLGenerator
             {
                 return TemplateItems.All(item => item.Uid != newUid);
             }
-            catch (ArgumentNullException e)
+            catch (ArgumentNullException)
             {
                 return false;
             }
