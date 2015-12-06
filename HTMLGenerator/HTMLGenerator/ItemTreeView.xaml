@@ -19,16 +19,6 @@
         </Grid.ColumnDefinitions>
         <BulletDecorator Grid.Row="0" Background="Gray" Grid.ColumnSpan="3" MouseLeftButtonDown="WindowMovement_OnMouseDown"/>
         <TreeView Name="ItemTree" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="0">
-            <TreeViewItem Header="Hello">
-                <TreeViewItem Header="Hello more" />
-            </TreeViewItem>
-            <TreeViewItem Header="Oh God">
-                <TreeViewItem Header="Motherfucker">
-                    <TreeViewItem Header="Oh god no" />
-                </TreeViewItem>
-            </TreeViewItem>
-            <TreeViewItem Header="Help" />
-            <TreeViewItem Header="Me Please" />
         </TreeView>
         
         <Button Grid.Row="2" Grid.Column="0" Margin="5,5,5,5" Content="Add" Click="AddItemButton_OnClick"/>

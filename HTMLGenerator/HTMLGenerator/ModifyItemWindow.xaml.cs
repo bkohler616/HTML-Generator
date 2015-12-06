@@ -13,12 +13,13 @@ namespace HTMLGenerator
     public partial class ModifyItem : Window
     {
         public string ItemContent = "";
-
+        private readonly TemplateList _tempListHold;
         public bool AcceptChange;
 
-        public ModifyItem()
+        public ModifyItem(TemplateList oldList)
         {
             InitializeComponent();
+            _tempListHold = oldList;
         }
 
         private void ContentButton_OnClick(object sender, RoutedEventArgs e)
@@ -30,8 +31,15 @@ namespace HTMLGenerator
 
         private void AcceptButton_OnClick(object sender, RoutedEventArgs e)
         {
-            AcceptChange = true;
-            Close();
+            if (!_tempListHold.Check(TbUid.Text))
+            {
+                MessageBox.Show("There's an item with that name already. Try a different name!");
+            }
+            else
+            {
+                AcceptChange = true;
+                Close();
+            }
         }
 
         private void CancelButton_OnClick(object sender, RoutedEventArgs e)
@@ -47,8 +55,7 @@ namespace HTMLGenerator
             if (CbItemType.SelectedIndex == 0)
             {
                 //Item Handlers
-
-                CbItem.Items.Add("Column");
+                
                 CbItem.Items.Add("Well");
                 CbItem.Items.Add("Multiple Columns");
             }
@@ -67,7 +74,7 @@ namespace HTMLGenerator
             TbMarginBottom.IsEnabled = true;
             TbMarginLeft.IsEnabled = true;
             TbMarginTop.IsEnabled = true;
-            TbMaringRight.IsEnabled = true;
+            TbMarginRight.IsEnabled = true;
 
             //Disable possibly unused items
             BtnEditContent.IsEnabled = false;
@@ -107,5 +114,7 @@ namespace HTMLGenerator
             { }
 
         }
+
+        
     }
 }

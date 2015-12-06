@@ -1,9 +1,9 @@
 ﻿namespace HTMLGenerator
 {
-    public class TemplateHandlerMultiCol
+    public class TemplateHandlerMultiCol :TemplateItem
     {
         public TemplateHandlerColumn[] ColumnArray { get; set; }
-
+        
         /// <summary>
         ///     Column array can only be 2-4.
         /// </summary>

@@ -59,5 +59,42 @@ namespace HTMLGenerator.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*!
+        /// * Bootstrap v3.3.6 (http://getbootstrap.com)
+        /// * Copyright 2011-2015 Twitter, Inc.
+        /// * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+        /// *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:b [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string bootstrap_css {
+            get {
+                return ResourceManager.GetString("bootstrap_css", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*!
+        /// * Bootstrap v3.3.6 (http://getbootstrap.com)
+        /// * Copyright 2011-2015 Twitter, Inc.
+        /// * Licensed under the MIT license
+        /// */
+        ///if(&quot;undefined&quot;==typeof jQuery)throw new Error(&quot;Bootstrap&apos;s JavaScript requires jQuery&quot;);+function(a){&quot;use strict&quot;;var b=a.fn.jquery.split(&quot; &quot;)[0].split(&quot;.&quot;);if(b[0]&lt;2&amp;&amp;b[1]&lt;9||1==b[0]&amp;&amp;9==b[1]&amp;&amp;b[2]&lt;1||b[0]&gt;2)throw new Error(&quot;Bootstrap&apos;s JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3&quot;)}(jQuery),+function(a){&quot;use strict&quot;;function b(){var a=document.createE [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string bootstrap_js {
+            get {
+                return ResourceManager.GetString("bootstrap_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
+        ///!function(a,b){&quot;object&quot;==typeof module&amp;&amp;&quot;object&quot;==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error(&quot;jQuery requires a window with a document&quot;);return b(a)}:b(a)}(&quot;undefined&quot;!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l=&quot;1.11.3&quot;,m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string jquery_js {
+            get {
+                return ResourceManager.GetString("jquery_js", resourceCulture);
+            }
+        }
     }
 }

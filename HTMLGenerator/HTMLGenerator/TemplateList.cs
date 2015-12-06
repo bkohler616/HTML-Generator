@@ -21,29 +21,29 @@ namespace HTMLGenerator
     [XmlInclude(typeof (TemplateContentImage))]
     public class TemplateList
     {
-        public List<TemplateItem> TemplateItems { get; set; }
+        public List<TemplateItem> TemplateItems { get; }
 
         public TemplateList()
         {
             TemplateItems = new List<TemplateItem>();
         }
 
-        public bool Add(TemplateItem newItem)
+        public bool Check(string newUid)
         {
             try
             {
-                if (TemplateItems.Any(item => item.Uid == newItem.Uid))
-                {
-                    return false;
-                }
-                TemplateItems.Add(newItem);
-                return true;
+                return TemplateItems.All(item => item.Uid != newUid);
             }
             catch (ArgumentNullException e)
             {
                 return false;
             }
             
+        }
+
+        public void Add(TemplateItem newItem)
+        {
+            TemplateItems.Add(newItem);
         }
     }
 }
