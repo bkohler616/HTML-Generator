@@ -21,6 +21,7 @@ namespace HTMLGenerator
         {
             InitializeComponent();
             ItemTree = new ItemTreeView();
+            BuildDocument();
         }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace HTMLGenerator
             BuildDocument();
         }
 
-        public void BuildDocument()
+        private void BuildDocument()
         {
             //File locators
             //string fileDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\Output";
@@ -100,15 +101,15 @@ namespace HTMLGenerator
             }
             //Build HTML
             //Start
-            string htmlBuild = "<!DOCTYPE html>" +
-                               "<html lang=\"en\">" +
-                               "<head>" +
-                               "<link href=\"bootstrap.css\" rel=\"stylesheet\" />" +
-                               "<script src=\"jquery.js\" />" +
-                               "<script src=\"bootstrap.js\" />" +
-                               "</head>" +
-                               "<body>" +
-                               "<div class=\"container\">";
+            string htmlBuild = "<!DOCTYPE html>\n" +
+                               "<html lang=\"en\">\n\t" +
+                               "<head>\n\t\t" +
+                               "<link href=\"bootstrap.css\" rel=\"stylesheet\" />\n\t\t" +
+                               "<script src=\"jquery.js\"></script>\n\t\t" +
+                               "<script src=\"bootstrap.js\"></script>\n\t" +
+                               "</head>\n" +
+                               "<body>\n\t" +
+                               "<div class=\"container\">\n\t\t";
             //Call start segments
             foreach (TreeViewItem itemObj in ItemTree.ItemTree.Items )
             {
@@ -118,8 +119,8 @@ namespace HTMLGenerator
             //Call end segments
 
             //End
-            htmlBuild += "</div>" +
-                         "</body>" +
+            htmlBuild += "</div>\n\t" +
+                         "</body>\n" +
                          "</html>";
 
             //Output HTML

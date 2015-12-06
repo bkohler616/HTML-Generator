@@ -43,13 +43,16 @@
                 }
                 builder += tempItem.EndDiv;
             }
+            //Item Content
             else if (item is TemplateContentText)
             {
-                //TODO: Finish Text (see Modify Item for more to finish)
+                var tempItem = (TemplateContentText) item;
+                builder += tempItem.GenerateHtml();
             }
             else if (item is TemplateContentImage)
             {
-                //TODO: Finish Image (add reference images)
+                var tempItem = (TemplateContentImage)item;
+                builder += tempItem.GenerateHtml();
             }
 
             return builder;

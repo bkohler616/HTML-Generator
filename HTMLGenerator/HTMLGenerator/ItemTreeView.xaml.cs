@@ -17,6 +17,7 @@ namespace HTMLGenerator
         {
             InitializeComponent();
             TemplateItems = new TemplateList();
+            TemplateItems.GenerateItems();
         }
 
         public ItemTreeView(TemplateList oldList)
@@ -59,26 +60,12 @@ namespace HTMLGenerator
                     switch (newItem.CbItem.Text)
                     {
                         case "Text":
-                            var newText = new TemplateContentText
-                            {
-                                Uid = newItem.TbUid.Text,
-                                Content = newItem.ItemContent,
-                                MarginBottom = Convert.ToInt32(newItem.TbMarginBottom.Text),
-                                MarginTop = Convert.ToInt32(newItem.TbMarginTop.Text),
-                                MarginLeft = Convert.ToInt32(newItem.TbMarginLeft.Text),
-                                MarginRight = Convert.ToInt32(newItem.TbMarginRight.Text)
-                            };
+                            var newText = new TemplateContentText(newItem.TbUid.Text, newItem.TypeHolder, newItem.ItemContent, newItem.MarginHolder);
                             TemplateItems.Add(newText);
                             ItemTree.Items.Add(new TreeViewItem { Header = newText.Uid });
                             break;
                         case "Image":
-                            var newImage = new TemplateContentImage { Uid = newItem.TbUid.Text,
-                                Content = newItem.ItemContent,
-                                MarginBottom = Convert.ToInt32(newItem.TbMarginBottom.Text),
-                                MarginTop = Convert.ToInt32(newItem.TbMarginTop.Text),
-                                MarginLeft = Convert.ToInt32(newItem.TbMarginLeft.Text),
-                                MarginRight = Convert.ToInt32(newItem.TbMarginRight.Text)
-                            };
+                            var newImage = new TemplateContentImage(newItem.TbUid.Text, newItem.ItemContent, newItem.MarginHolder, newItem.TbWidth.Text, newItem.TbHeight.Text);
                             TemplateItems.Add(newImage);
                             ItemTree.Items.Add(new TreeViewItem { Header = newImage.Uid });
                             break;

@@ -10,18 +10,16 @@
         /// </summary>
         /// <param name="colAmount"></param>
         /// <returns></returns>
-        public bool AllocateCollumns(int colAmount)
+        public TemplateHandlerMultiCol(string uid, int colAmount)
         {
-            if (colAmount < 2 || colAmount > 4)
-                return false;
+            Uid = uid;
             ColAmount = colAmount;
             ColumnArray = new TemplateHandlerColumn[colAmount];
-            int colSize = 12/colAmount;
+            int colSize = 12/ColAmount;
             for (int i = 1; i < ColAmount; i++)
             {
                 ColumnArray[i] = new TemplateHandlerColumn("column" + i, colSize);
             }
-            return true;
         }
     }
 }

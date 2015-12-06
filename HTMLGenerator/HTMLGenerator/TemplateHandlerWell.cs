@@ -8,6 +8,7 @@ namespace HTMLGenerator
         public List<TemplateItem> ItemHold { get; set; }
         public TemplateHandlerWell(string uid)
         {
+            Uid = uid;
             StartDiv = "<div id=\"uid\" class=\"well\">";
             EndDiv = "</div>";
         }

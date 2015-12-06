@@ -15,6 +15,8 @@ namespace HTMLGenerator
         public string ItemContent = "";
         private readonly TemplateList _tempListHold;
         public bool AcceptChange;
+        public string MarginHolder = "";
+        public string TypeHolder = "";
 
         //TODO: Finish Type Selector (CbTypeSelector)
 
@@ -40,6 +42,29 @@ namespace HTMLGenerator
             else
             {
                 AcceptChange = true;
+                MarginHolder = TbMarginTop.Text + "px " +
+                    TbMarginRight.Text + "px " +
+                    TbMarginBottom.Text + "px " +
+                    TbMarginLeft.Text + "px ";
+                if (CbTypeSelector.SelectedItem.Equals("Paragraph"))
+                {
+                    TypeHolder = "p";
+                } else if (CbTypeSelector.SelectedItem.Equals("Heading 1"))
+                {
+                    TypeHolder = "h1";
+                }
+                else if (CbTypeSelector.SelectedItem.Equals("Heading 2"))
+                {
+                    TypeHolder = "h2";
+                }
+                else if (CbTypeSelector.SelectedItem.Equals("Heading 3"))
+                {
+                    TypeHolder = "h3";
+                }
+                else if (CbTypeSelector.SelectedItem.Equals("Heading 4"))
+                {
+                    TypeHolder = "h4";
+                }
                 Close();
             }
         }
@@ -82,6 +107,8 @@ namespace HTMLGenerator
             BtnEditContent.IsEnabled = false;
             TbHeight.IsEnabled = false;
             TbWidth.IsEnabled = false;
+            CbTypeSelector.IsEnabled = false;
+            CbTypeSelector.Items.Clear();
 
             //Clear info post
             TbInfoPost.Text = "";
@@ -103,7 +130,15 @@ namespace HTMLGenerator
                 //Content
                 else if (CbItem.SelectedItem.Equals("Text"))
                 {
+                    TbInfoPost.Text = "Please select a type for your text type";
                     BtnEditContent.IsEnabled = true;
+                    CbTypeSelector.IsEnabled = true;
+                    CbTypeSelector.Items.Add("Paragraph");
+                    CbTypeSelector.Items.Add("Heading 1");
+                    CbTypeSelector.Items.Add("Heading 2");
+                    CbTypeSelector.Items.Add("Heading 3");
+                    CbTypeSelector.Items.Add("Heading 4");
+                    BtnAccept.IsEnabled = false; //Deactivated because a text type needs to be selected.
                 }
                 else if (CbItem.SelectedItem.Equals("Image"))
                 {
@@ -117,6 +152,11 @@ namespace HTMLGenerator
 
         }
 
-        
+
+        private void CbTypeSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Can assume that everything is prepared now.
+            BtnAccept.IsEnabled = true;
+        }
     }
 }

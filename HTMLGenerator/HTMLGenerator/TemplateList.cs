@@ -21,13 +21,16 @@ namespace HTMLGenerator
     [XmlInclude(typeof (TemplateContentImage))]
     public class TemplateList
     {
-        public List<TemplateItem> TemplateItems { get; }
+        public List<TemplateItem> TemplateItems { get; set; }
 
         public TemplateList()
         {
-            TemplateItems = new List<TemplateItem>();
         }
 
+        public void GenerateItems()
+        {
+            TemplateItems = new List<TemplateItem>();
+        }
         public bool Check(string newUid)
         {
             try
