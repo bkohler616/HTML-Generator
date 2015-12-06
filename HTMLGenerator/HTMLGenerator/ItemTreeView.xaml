@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="ItemTreeView" Height="400" Width="200"
-        WindowStyle="ToolWindow"
-        Closing="ItemTreeView_OnClosing">
+        WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"/>
             <RowDefinition/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TreeView Name="ItemTree" Grid.ColumnSpan="3" Grid.Row="0">
+        <BulletDecorator Grid.Row="0" Background="Gray" Grid.ColumnSpan="3" MouseLeftButtonDown="WindowMovement_OnMouseDown"/>
+        <TreeView Name="ItemTree" Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="0">
             <TreeViewItem Header="Hello">
                 <TreeViewItem Header="Hello more" />
             </TreeViewItem>
@@ -30,9 +31,9 @@
             <TreeViewItem Header="Me Please" />
         </TreeView>
         
-        <Button Grid.Row="1" Grid.Column="0" Margin="5,5,5,5" Content="Add" Click="AddItemButton_OnClick"/>
-        <Button Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" Content="&#9650;"/>
-        <Button Grid.Row="1" Grid.Column="2" Margin="5,5,5,5" Content="&#9660;"/>
+        <Button Grid.Row="2" Grid.Column="0" Margin="5,5,5,5" Content="Add" Click="AddItemButton_OnClick"/>
+        <Button Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" Content="&#9650;"/>
+        <Button Grid.Row="2" Grid.Column="2" Margin="5,5,5,5" Content="&#9660;"/>
         
         
     </Grid>

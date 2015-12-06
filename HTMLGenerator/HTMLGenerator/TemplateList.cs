@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 using System.Xml.Serialization;
 
 namespace HTMLGenerator
@@ -20,9 +23,27 @@ namespace HTMLGenerator
     {
         public List<TemplateItem> TemplateItems { get; set; }
 
-        public void TemplateItem()
+        public TemplateList()
         {
             TemplateItems = new List<TemplateItem>();
+        }
+
+        public bool Add(TemplateItem newItem)
+        {
+            try
+            {
+                if (TemplateItems.Any(item => item.Uid == newItem.Uid))
+                {
+                    return false;
+                }
+                TemplateItems.Add(newItem);
+                return true;
+            }
+            catch (ArgumentNullException e)
+            {
+                return false;
+            }
+            
         }
     }
 }
