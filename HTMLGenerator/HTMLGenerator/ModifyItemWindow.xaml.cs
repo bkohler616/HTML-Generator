@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
@@ -13,9 +15,14 @@ namespace HTMLGenerator
     /// </summary>
     public partial class ModifyItem : Window
     {
-        public string ItemContent = "";
         private readonly TemplateList _tempListHold;
         public bool AcceptChange;
+        private bool ImageAccepted;
+        private string ImageExt = "";
+
+        private string ImageLocation = "";
+        private string ImageName = "";
+        public string ItemContent = "";
         public string MarginHolder = "";
         public string TypeHolder = "";
 
@@ -34,14 +41,21 @@ namespace HTMLGenerator
                 var newString = new StringInputWindow(ItemContent);
                 newString.ShowDialog();
                 ItemContent = newString.ContentEditor.Text;
-            } else if (CbItem.SelectedItem.Equals("Image"))
+            }
+            else if (CbItem.SelectedItem.Equals("Image"))
             {
                 var dlg = new OpenFileDialog
                 {
+                    Multiselect = false,
                     Filter = " *.png|*.png|*.jpg|*.jpg|*.gif|*.gif"
                 };
                 var result = dlg.ShowDialog();
-                
+                if (result.HasValue && result == true)
+                {
+                    ImageLocation = dlg.FileName;
+                    ImageName = dlg.SafeFileName;
+                    ImageAccepted = true;
+                }
             }
         }
 
@@ -53,31 +67,60 @@ namespace HTMLGenerator
             }
             else
             {
-                AcceptChange = true;
-                MarginHolder = TbMarginTop.Text + "px " +
-                    TbMarginRight.Text + "px " +
-                    TbMarginBottom.Text + "px " +
-                    TbMarginLeft.Text + "px ";
-                if (CbTypeSelector.SelectedItem.Equals("Paragraph"))
+                if (CbItem.SelectedItem.Equals("Image"))
                 {
-                    TypeHolder = "p";
-                } else if (CbTypeSelector.SelectedItem.Equals("Heading 1"))
-                {
-                    TypeHolder = "h1";
+                    try
+                    {
+                        var fileDir = new FileInfo(Assembly.GetEntryAssembly().Location).Directory + "\\Output\\Images\\";
+                        if (!Directory.Exists(fileDir))
+                        {
+                            Directory.CreateDirectory(fileDir);
+                        }
+                        var image = fileDir + ImageName;
+
+                        File.Copy(ImageLocation, image, true);
+                        ItemContent = ImageName;
+                        AcceptChange = true;
+                        Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Exception! " + ex.Message + "\n" + ex.StackTrace);
+                    }
                 }
-                else if (CbTypeSelector.SelectedItem.Equals("Heading 2"))
+                else if (CbItem.SelectedItem.Equals("Text"))
                 {
-                    TypeHolder = "h2";
+                    AcceptChange = true;
+                    MarginHolder = TbMarginTop.Text + "px " +
+                                   TbMarginRight.Text + "px " +
+                                   TbMarginBottom.Text + "px " +
+                                   TbMarginLeft.Text + "px ";
+                    if (CbTypeSelector.SelectedItem.Equals("Paragraph"))
+                    {
+                        TypeHolder = "p";
+                    }
+                    else if (CbTypeSelector.SelectedItem.Equals("Heading 1"))
+                    {
+                        TypeHolder = "h1";
+                    }
+                    else if (CbTypeSelector.SelectedItem.Equals("Heading 2"))
+                    {
+                        TypeHolder = "h2";
+                    }
+                    else if (CbTypeSelector.SelectedItem.Equals("Heading 3"))
+                    {
+                        TypeHolder = "h3";
+                    }
+                    else if (CbTypeSelector.SelectedItem.Equals("Heading 4"))
+                    {
+                        TypeHolder = "h4";
+                    }
+                    Close();
                 }
-                else if (CbTypeSelector.SelectedItem.Equals("Heading 3"))
+                if (CbItemType.Text == "Item Handler")
                 {
-                    TypeHolder = "h3";
+                    MessageBox.Show("Sadly, Handlers are not implemented just yet. Try a content system!");
                 }
-                else if (CbTypeSelector.SelectedItem.Equals("Heading 4"))
-                {
-                    TypeHolder = "h4";
-                }
-                Close();
             }
         }
 
@@ -94,7 +137,7 @@ namespace HTMLGenerator
             if (CbItemType.SelectedIndex == 0)
             {
                 //Item Handlers
-                
+
                 CbItem.Items.Add("Well");
                 CbItem.Items.Add("Multiple Columns");
             }
@@ -160,8 +203,8 @@ namespace HTMLGenerator
                 }
             }
             catch (NullReferenceException)
-            { }
-
+            {
+            }
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -135,6 +136,18 @@ namespace HTMLGenerator
 
             //Reload Browser
             WebViewer.LoadUrl(Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\Output\\index.html");
+        }
+
+        private void OpenExplorer_OnClick(object sender, RoutedEventArgs e)
+        {
+            string fileDir = new FileInfo(Assembly.GetEntryAssembly().Location).Directory + "\\Output\\";
+            Process.Start("explorer.exe", fileDir);
+        }
+
+        private void RenderToBrowser_OnClick(object sender, RoutedEventArgs e)
+        {
+            string fileToOpen = new FileInfo(Assembly.GetEntryAssembly().Location).Directory + "\\Output\\index.html";
+            Process.Start(fileToOpen);
         }
     }
 }

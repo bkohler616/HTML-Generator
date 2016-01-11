@@ -1,11 +1,10 @@
-﻿namespace HTMLGenerator
+﻿using System.IO;
+using System.Reflection;
+
+namespace HTMLGenerator
 {
     public class TemplateContentImage : TemplateContent
     {
-        //Physical properties
-        public string Width { get; set; }
-        public string Height { get; set; }
-
         public TemplateContentImage(string uid, string itemLoc, string margins, string width, string height)
         {
             Content = itemLoc;
@@ -15,14 +14,21 @@
             Height = height;
         }
 
+        public TemplateContentImage()
+        {
+        }
+
+        //Physical properties
+        private string Width { get; set; }
+        private string Height { get; set; }
+
         public override string GenerateHtml()
         {
-            //TODO: Finish generation of images. (first move images to directory)
-            string builder = "<";
+            var fileDir = new FileInfo(Assembly.GetEntryAssembly().Location).Directory + "\\Output\\Images\\";
+            var builder = "<img src=\"" + fileDir + Content + "\" style=\"Height:" + Height +
+                          ";Width:" + Width + ";\">";
 
             return builder;
         }
-
-        public TemplateContentImage() { }
     }
 }
