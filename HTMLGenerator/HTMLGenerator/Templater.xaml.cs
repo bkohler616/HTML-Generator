@@ -135,7 +135,7 @@ namespace HTMLGenerator
             }
 
             //Reload Browser
-            WebViewer.LoadUrl(Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\Output\\index.html");
+            WebViewer.Source = new Uri(Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\Output\\index.html");
         }
 
         private void OpenExplorer_OnClick(object sender, RoutedEventArgs e)

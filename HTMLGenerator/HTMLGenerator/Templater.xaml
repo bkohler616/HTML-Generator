@@ -20,11 +20,8 @@
             <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <eo:WebControl Grid.Row="0">
-            <eo:WebControl.WebView>
-                <eo:WebView Url="file:///C:/Users/Bkohler/Documents/asdf.html" x:Name="WebViewer"/>
-            </eo:WebControl.WebView>
-        </eo:WebControl>
+        <WebBrowser Grid.Row="0" x:Name="WebViewer">
+        </WebBrowser>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
