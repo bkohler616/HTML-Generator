@@ -60,20 +60,34 @@
     <Compile Include="ItemTreeView.xaml.cs">
       <DependentUpon>ItemTreeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TemplateContent.cs" />
-    <Compile Include="TemplateContentImage.cs" />
-    <Compile Include="TemplateContentText.cs" />
     <Compile Include="ModifyItemWindow.xaml.cs">
       <DependentUpon>ModifyItemWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="StringInputWindow.xaml.cs">
       <DependentUpon>StringInputWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TemplateHandler.cs" />
-    <Compile Include="TemplateHandlerColumn.cs" />
-    <Compile Include="TemplateHandlerMultiCol.cs" />
-    <Compile Include="TemplateHandlerWell.cs" />
-    <Compile Include="TemplateItem.cs" />
+    <Compile Include="Template.cs" />
+    <Compile Include="TemplateContent.cs">
+      <DependentUpon>Template.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateContentImage.cs">
+      <DependentUpon>TemplateContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateContentText.cs">
+      <DependentUpon>TemplateContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateHandler.cs">
+      <DependentUpon>Template.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateHandlerColumn.cs">
+      <DependentUpon>TemplateHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateHandlerMultiCol.cs">
+      <DependentUpon>TemplateHandlerColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplateHandlerWell.cs">
+      <DependentUpon>TemplateHandler.cs</DependentUpon>
+    </Compile>
     <Compile Include="TemplateList.cs" />
     <Compile Include="Templater.xaml.cs">
       <DependentUpon>Templater.xaml</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace HTMLGenerator
 {
-    public abstract class TemplateContent : TemplateItem
+    public abstract class TemplateContent : Template
     {
         //ItemContent
         public string Content { get; set; }

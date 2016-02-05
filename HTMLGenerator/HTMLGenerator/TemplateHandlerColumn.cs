@@ -4,7 +4,7 @@ namespace HTMLGenerator
 {
     public class TemplateHandlerColumn : TemplateHandler
     {
-        public List<TemplateItem> ItemHold { get; set; }
+        public List<Template> ItemHold { get; set; }
         public int NewColSize { get; set; }
 
         public TemplateHandlerColumn(string newUid, int newColSize)
