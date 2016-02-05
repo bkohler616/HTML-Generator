@@ -114,8 +114,8 @@ namespace HTMLGenerator
             //Call start segments
             foreach (TreeViewItem itemObj in ItemTree.ItemTree.Items )
             {
-                TemplateItem item = ItemTree.TemplateItems.TemplateItems.Find(i => i.Uid == itemObj.Header.ToString());
-                htmlBuild += TemplateItem.BuildHelper(item);
+                Template item = ItemTree.TemplateItems.TemplateItems.Find(i => i.Uid == itemObj.Header.ToString());
+                htmlBuild += HTMLGenerator.Template.BuildHelper(item);
             }
             //Call end segments
 

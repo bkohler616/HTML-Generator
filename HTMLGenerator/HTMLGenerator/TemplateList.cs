@@ -11,7 +11,7 @@ namespace HTMLGenerator
     ///     within the template.
     ///     TODO: Add class content.
     /// </summary>
-    [XmlInclude(typeof (TemplateItem))]
+    [XmlInclude(typeof (Template))]
     [XmlInclude(typeof (TemplateHandler))]
     [XmlInclude(typeof (TemplateHandlerColumn))]
     [XmlInclude(typeof (TemplateHandlerMultiCol))]
@@ -21,7 +21,7 @@ namespace HTMLGenerator
     [XmlInclude(typeof (TemplateContentImage))]
     public class TemplateList
     {
-        public List<TemplateItem> TemplateItems { get; set; }
+        public List<Template> TemplateItems { get; set; }
 
         public TemplateList()
         {
@@ -29,7 +29,7 @@ namespace HTMLGenerator
 
         public void GenerateItems()
         {
-            TemplateItems = new List<TemplateItem>();
+            TemplateItems = new List<Template>();
         }
         public bool Check(string newUid)
         {
@@ -44,9 +44,9 @@ namespace HTMLGenerator
             
         }
 
-        public void Add(TemplateItem newItem)
+        public void Add(Template @new)
         {
-            TemplateItems.Add(newItem);
+            TemplateItems.Add(@new);
         }
     }
 }
